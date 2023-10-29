@@ -1,3 +1,0 @@
-Hola de nuev Git
-
-Agrego un nuevo cambio al archivo
