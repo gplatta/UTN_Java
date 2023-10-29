@@ -33,7 +33,7 @@ public class App {
         programacion2.addCorrelativa(programacion1);
         programacion2.addCorrelativa(matematica1);
 
-        Materia programacion3 = new Materia("Programación II");
+        Materia programacion3 = new Materia("Programación III");
         programacion3.addCorrelativa(fisica2);
         programacion3.addCorrelativa(matematica2);
         programacion3.addCorrelativa(programacion2);
