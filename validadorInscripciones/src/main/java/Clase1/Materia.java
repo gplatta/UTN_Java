@@ -23,4 +23,9 @@ public class Materia {
     public void addCorrelativa(Materia materia) {
         this.correlativas.add(materia);
     }
+
+    public boolean tieneCorrelativas() {
+
+        return !this.correlativas.isEmpty();
+    }
 }

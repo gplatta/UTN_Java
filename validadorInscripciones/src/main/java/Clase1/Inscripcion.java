@@ -1,4 +1,7 @@
 package Clase1;
+
+import java.util.stream.Stream;
+
 public class Inscripcion {
     private Alumno alumno;
     private Materia materia;
@@ -8,26 +11,12 @@ public class Inscripcion {
         this.materia = materia;
     }
 
+    public boolean elAlumnoPuedeCursar() {
+        return this.materia.getCorrelativas().stream().allMatch(materiaCorrelativa ->
+               this.alumno.tieneLaCorrelativa(materiaCorrelativa));
+    }
+
     public boolean inscripcionAprobada() {
-        boolean aprobada = false;
-
-        if (!materia.getCorrelativas().isEmpty()) {
-            boolean fin = false;
-            int i = 0;
-            while (!fin && (i < this.materia.getCorrelativas().size())) {
-                Materia mat = this.materia.getCorrelativas().get(i);
-                if (this.alumno.getMateriasAprobadas().contains(mat))
-                    aprobada = true;
-                else {
-                    aprobada = false;
-                    fin = true;
-                }
-                i++;
-            }
-        }
-        else
-            aprobada = true;
-
-        return aprobada;
+        return (!this.materia.tieneCorrelativas() || elAlumnoPuedeCursar());
     }
 }

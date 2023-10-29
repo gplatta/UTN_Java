@@ -80,4 +80,8 @@ public class Alumno {
 
         this.materiasAprobadas.add(mat);
     }
+
+    public boolean tieneLaCorrelativa(Materia materiaCorrelativa) {
+        return this.materiasAprobadas.contains(materiaCorrelativa);
+    }
 }
