@@ -11,6 +11,7 @@ public class Inscripcion {
         this.materia = materia;
     }
 
+    // Con expresión lambda
     public boolean elAlumnoPuedeCursar() {
         return this.materia.getCorrelativas().stream().allMatch(materiaCorrelativa ->
                this.alumno.tieneLaCorrelativa(materiaCorrelativa));
@@ -19,4 +20,28 @@ public class Inscripcion {
     public boolean inscripcionAprobada() {
         return (!this.materia.tieneCorrelativas() || elAlumnoPuedeCursar());
     }
+    // -----------------------------------------------------------------------------------
+
+    // Sin expresión lambda
+    public boolean inscripcionAprobada2() {
+        boolean fin = false, resultado = false;
+        int i = 0;
+
+        if (!this.materia.getCorrelativas().isEmpty()) {
+            while (!fin && i < this.materia.getCorrelativas().size()) {
+                if (this.alumno.getMateriasAprobadas().contains(this.materia.getCorrelativas().get(i)))
+                    resultado = true;
+                else {
+                    resultado = false;
+                    fin = true;
+                }
+                i++;
+            }
+        }
+        else
+            resultado = true;
+
+        return resultado;
+    }
+    // ---------------------------------------------------------------------------------------------------
 }
