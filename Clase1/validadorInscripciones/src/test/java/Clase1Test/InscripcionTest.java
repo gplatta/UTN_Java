@@ -7,6 +7,7 @@ import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 
 public class InscripcionTest {
+    
     @Test
     public void juanPuedeAnotarseAFisica2() {
         Alumno juan = new Alumno("Juan","apellido");
